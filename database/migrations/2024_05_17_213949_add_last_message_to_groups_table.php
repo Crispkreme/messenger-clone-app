@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('conversations', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id1')
-                  ->constrained('groups');
-            $table->foreignId('user_id2')
-                  ->constrained('groups');
-            $table->timestamps();
+        Schema::table('groups', function (Blueprint $table) {
+            $table->foreignId('last_message_id')
+                  ->nullable()
+                  ->constrained('messages');
         });
     }
 
@@ -26,6 +23,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('conversations');
+        Schema::table('groups', function (Blueprint $table) {
+            //
+        });
     }
 };
