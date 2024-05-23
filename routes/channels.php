@@ -1,11 +1,8 @@
 <?php
 
+use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Broadcast;
 
-// Broadcast::channel('online', function ($user) {
-//     return $user;
-// });
-
 Broadcast::channel('chat-room', function ($user) {
-    return auth()->user();
+    return auth()->user() ? new UserResource($user) : null;
 });
