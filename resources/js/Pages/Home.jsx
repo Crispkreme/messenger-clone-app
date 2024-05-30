@@ -15,6 +15,12 @@ function Home({ selectedConversation = null, messages = null }) {
         isSetLocalMessages(messages ? messages.data.reverse() : []);
     }, [messages]);
 
+    useEffect(() => {
+        setTimeout(() => {
+            messagesCtrRef.current.scrollTop = messagesCtrRef.current.scrollHeight;
+        }, 10)
+    }, [selectedConversation])
+
     return (
         <>
             { !messages && (
