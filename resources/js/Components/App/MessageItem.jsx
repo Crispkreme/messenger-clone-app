@@ -5,9 +5,9 @@ import UserAvatar from './UserAvatar';
 import { formatMessageDateLong } from '@/helpers';
 
 const MessageItem = ({ message }) => {
-
+        
     const currentUser = usePage().props.auth.user;
-
+    
     return (
         <div
             className={
