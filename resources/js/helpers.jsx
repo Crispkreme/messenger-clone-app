@@ -17,8 +17,11 @@ export const formatMessageDateLong = (date) => {
         )
     } else if (inputDate.getFullYear() === now.getFullYear()) {
         return inputDate.toLocaleDateString([], {
+            month: 'short',
+            day: 'numeric',
+        }) + ' ' + inputDate.toLocaleTimeString([], {
             hour: '2-digit',
-            minute: 'short',
+            minute: '2-digit',
         });
     } else {
         return inputDate.toLocaleDateString();
@@ -38,8 +41,11 @@ export const formatMessageDateShort = (date) => {
         return 'Yesterday';
     } else if(inputDate.getFullYear() === now.getFullYear()) {
         return inputDate.toLocaleDateString([], {
+            month: 'short',
+            day: 'numeric',
+        }) + ' ' + inputDate.toLocaleTimeString([], {
             hour: '2-digit',
-            minute: 'short',
+            minute: '2-digit',
         });
     } else {
         return inputDate.toLocaleDateString();
